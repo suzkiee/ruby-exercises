@@ -34,13 +34,46 @@ RSpec.describe 'Any test' do
     expect(has_alice).to eq(false)
   end
 
+  # it 'has a multi word phrase' do
+  #   phrases = ["Sure!", "OK.", "I have no idea.", "Really?Whatever."]
+  #   # Your code goes here
+  #   multi_word_phrase = phrases.map do |phrase|
+  #     phrase.include?(" ")
+  #   end
+
+  #   require "pry"; binding.pry
+  #   expect(multi_word_phrase).to eq(true)
+  # end
+
+  # it 'has a multi word phrase' do
+  #   phrases = ["Sure", "OK.", "I have no idea.", "Really?Whatever."]
+    
+  #   multi_word_phrases = phrases.map do |phrase|
+  #     phrase if phrase.scan(/\w+/).size > 1 || phrase.include?(" ")
+  #   end
+    
+  #   expect(multi_word_phrase). to eq([nil, nil, "I have no idea.", "Really?Whatever."])
+  #   end
+  # end
+
+  # it 'has a multi word phrase' do
+  #   phrases = ["Sure", "OK.", "I have no idea.", "Really?Whatever."]
+
+  #   multi_word_phrase = phrases.map do |phrase|
+  #     phrase.scan(/\w+/).size > 1 
+  #   end
+    
+  #   expect(multi_word_phrase).to eq ([nil, nil, "I have no idea.", "Really?Whatever."])
+  # end
+
   it 'has a multi word phrase' do
-    phrases = ["Sure!", "OK.", "I have no idea.", "Really?Whatever."]
-    # Your code goes here
-    multi_word_phrase = phrases.any? do |phrase|
-      phrase.include?(" ")
+    phrases = ["Sure", "OK.", "I have no idea.", "Really?Whatever."]
+    collector = []
+    multi_word_phrase = phrases.map do |phrase|
+      if phrase.scan(/\w+/).size > 1 ? collector << phrase : collector << nil 
     end
-    expect(multi_word_phrase).to eq(true)
+
+    expect(multi_word_phrase).to eq ([nil, nil, "I have no idea.", "Really?Whatever."])
   end
 
   it 'no monkeys' do
@@ -60,4 +93,5 @@ RSpec.describe 'Any test' do
     end
     expect(multiples_of_5).to eq(false)
   end
+end 
 end

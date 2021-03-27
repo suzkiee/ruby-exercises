@@ -1,9 +1,9 @@
 RSpec.describe 'Any Pattern Test' do
 
-  it 'has at least one zero' do
+  xit 'has at least one zero' do
     numbers = [2, 0, 9, 3, 0, 1]
     has_zero = false
-    numbers.each do |number|
+    numbers.each do |num|
       has_zero = true if number.zero?
     end
     expect(has_zero).to eq(true)
@@ -49,4 +49,3 @@ RSpec.describe 'Any Pattern Test' do
     expect(multiples_of_5).to eq(false)
   end
 end
-
