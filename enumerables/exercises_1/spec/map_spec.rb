@@ -52,4 +52,3 @@ RSpec.describe 'map' do
     expect(trimmed).to eq(["do", "ca", "mous", "fro", "platypu"])
   end
 end
-
